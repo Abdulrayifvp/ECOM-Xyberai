@@ -7,7 +7,6 @@
 
     }
   ],
-  "includeFiles": ["views/**/*"],
   "routes": [
     {
       "src": "/(.*)",

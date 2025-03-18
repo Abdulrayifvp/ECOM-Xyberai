@@ -1,0 +1,118 @@
+<%- include ('./includes/header.ejs') %>
+
+    <body class="bg-gray-50">
+        <%- include ('./includes/navbar.ejs') %>
+            <body class="bg-gray-50">
+                <div class="min-h-screen flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+            
+                    <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+                        <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+                            <h1 class="text-bold text-center my-2">ADD PRODUCT</h1>
+                            <form class="space-y-6" action="#" method="POST">
+                                <div>
+                                    <label for="product-name" class="block text-sm font-medium text-gray-700">
+                                        Product Name
+                                    </label>
+                                    <div class="mt-1">
+                                        <input id="product-name" name="product-name" type="text"
+                                            class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label for="description" class="block text-sm font-medium text-gray-700">
+                                        Description
+                                    </label>
+                                    <div class="mt-1">
+                                        <input id="description" name="description" type="text"
+                                            class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label for="price" class="block text-sm font-medium text-gray-700">
+                                        Price
+                                    </label>
+                                    <div class="mt-1">
+                                        <input id="price" name="price" type="text"
+                                            class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label for="image-url" class="block text-sm font-medium text-gray-700">
+                                        Image Url
+                                    </label>
+                                    <div class="mt-1">
+                                        <input id="image-url" name="image-url" type="text"
+                                            class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                    </div>
+                                </div>
+                                <div>
+                                    <button type="submit"
+                                        class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                        submit
+                                    </button>
+                                </div>
+                            </form>
+            
+            
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    const form = document.querySelector("form");
+
+                        form.addEventListener("submit", function (event) {
+                            event.preventDefault(); // Prevent default form submission
+
+                            // Get form values
+                            const productName = document.getElementById("product-name").value.trim();
+                            const description = document.getElementById("description").value.trim();
+                            const price = document.getElementById("price").value.trim();
+                            const imageUrl = document.getElementById("image-url").value.trim();
+
+                            let isValid = true;
+
+                            // Clear previous error messages
+                            document.querySelectorAll(".error-message").forEach(el => el.remove());
+
+                            // Validate Product Name
+                            if (productName === "") {
+                                showError("product-name", "Product Name is required");
+                                isValid = false;
+                            }
+
+                            // Validate Description
+                            if (description === "") {
+                                showError("description", "Description is required");
+                                isValid = false;
+                            }
+
+                            // Validate Price (should be a positive number)
+                            if (!/^[0-9]+(\.[0-9]{1,2})?$/.test(price) || parseFloat(price) <= 0) {
+                                showError("price", "Enter a valid price");
+                                isValid = false;
+                            }
+
+                            // Validate Image URL (should be a valid URL)
+                            if (!/^https?:\/\/.+\.(jpg|jpeg|png|gif|webp)$/i.test(imageUrl)) {
+                                showError("image-url", "Enter a valid image URL (jpg, jpeg, png, gif, webp)");
+                                isValid = false;
+                            }
+
+                            // Submit form if all fields are valid
+                            if (isValid) {
+                                form.submit();
+                            }
+                        });
+
+                        function showError(fieldId, message) {
+                            const field = document.getElementById(fieldId);
+                            const error = document.createElement("p");
+                            error.className = "error-message text-red-500 text-sm mt-1";
+                            error.textContent = message;
+                            field.parentNode.appendChild(error);
+                        }
+                </script>
+            <%- include ('./includes/footer.ejs') %>
+    </body>
+
+    </html>

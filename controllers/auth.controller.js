@@ -38,7 +38,7 @@ module.exports = {
         if (error) {
             return res.status(400).send(error.message);
         }
-        return res.status(200).redirect('auth/login');
+        return res.status(200).redirect('/auth/login');
     },
 
     postLogin: async (req, res) => {    
