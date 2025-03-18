@@ -20,7 +20,7 @@
             </h2>
             <p class="mt-2 text-center text-sm text-gray-600">
                 Or
-                <a href="login.html" class="font-medium text-indigo-600 hover:text-indigo-500">
+                <a href="/auth/login" class="font-medium text-indigo-600 hover:text-indigo-500">
                     sign in to your existing account
                 </a>
             </p>
@@ -28,14 +28,14 @@
 
         <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
             <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-                <form class="space-y-6" action="#" method="POST">
+                <form class="space-y-6" action="/auth/signup" method="POST">
                     <div class="grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-2">
                         <div>
                             <label for="first-name" class="block text-sm font-medium text-gray-700">
                                 First name
                             </label>
                             <div class="mt-1">
-                                <input type="text" name="first-name" id="first-name" autocomplete="given-name" required
+                                <input type="text" name="firstname" id="first-name" autocomplete="given-name" 
                                     class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                             </div>
                         </div>
@@ -45,7 +45,7 @@
                                 Last name
                             </label>
                             <div class="mt-1">
-                                <input type="text" name="last-name" id="last-name" autocomplete="family-name" required
+                                <input type="text" name="lastname" id="last-name" autocomplete="family-name" 
                                     class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                             </div>
                         </div>
@@ -56,7 +56,7 @@
                             Email address
                         </label>
                         <div class="mt-1">
-                            <input id="email" name="email" type="email" autocomplete="email" required
+                            <input id="email" name="email" type="email" autocomplete="email" 
                                 class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                         </div>
                     </div>
@@ -66,7 +66,7 @@
                             Password
                         </label>
                         <div class="mt-1">
-                            <input id="password" name="password" type="password" autocomplete="new-password" required
+                            <input id="password" name="password" type="password" autocomplete="new-password" 
                                 class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                         </div>
                         <p class="mt-2 text-xs text-gray-500">
@@ -79,23 +79,11 @@
                             Confirm password
                         </label>
                         <div class="mt-1">
-                            <input id="password-confirm" name="password-confirm" type="password"
-                                autocomplete="new-password" required
+                            <input id="passwordconfirm" name="password-confirm" type="password"
+                                autocomplete="new-password" 
                                 class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                         </div>
                     </div>
-
-                    <div class="flex items-center">
-                        <input id="terms" name="terms" type="checkbox" required
-                            class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
-                        <label for="terms" class="ml-2 block text-sm text-gray-900">
-                            I agree to the
-                            <a href="#" class="text-indigo-600 hover:text-indigo-500">Terms</a>
-                            and
-                            <a href="#" class="text-indigo-600 hover:text-indigo-500">Privacy Policy</a>
-                        </label>
-                    </div>
-
                     <div>
                         <button type="submit"
                             class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
@@ -104,50 +92,89 @@
                     </div>
                 </form>
 
-                <div class="mt-6">
-                    <div class="relative">
-                        <div class="absolute inset-0 flex items-center">
-                            <div class="w-full border-t border-gray-300"></div>
-                        </div>
-                        <div class="relative flex justify-center text-sm">
-                            <span class="px-2 bg-white text-gray-500">
-                                Or continue with
-                            </span>
-                        </div>
-                    </div>
 
-                    <div class="mt-6 grid grid-cols-2 gap-3">
-                        <div>
-                            <a href="#"
-                                class="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
-                                <i class="fab fa-google mr-2"></i>
-                                Google
-                            </a>
-                        </div>
+            </div>
+        </div>
+    </div>
 
-                        <div>
-                            <a href="#"
-                                class="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
-                                <i class="fab fa-facebook-f mr-2"></i>
-                                Facebook
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                </div>
-                </div>
-                </div>
-                
-                <!-- Footer -->
-                <footer class="bg-white mt-auto border-t">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 md:flex md:items-center md:justify-between lg:px-8">
-                        <div class="mt-8 md:mt-0 md:order-1">
-                            <p class="text-center text-base text-gray-400">
-                                &copy; 2025 Xyber - Ecom, Inc. All rights reserved.
-                            </p>
-                        </div>
-                    </div>
-                </footer>
-                </body>
-                
-                </html>
+    <!-- Footer -->
+    <footer class="bg-white mt-auto border-t">
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 md:flex md:items-center md:justify-between lg:px-8">
+            <div class="mt-8 md:mt-0 md:order-1">
+                <p class="text-center text-base text-gray-400">
+                    &copy; 2025 Xyber - Ecom, Inc. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+            const form = document.querySelector("form");
+            const firstNameInput = document.getElementById("first-name");
+            const lastNameInput = document.getElementById("last-name");
+            const emailInput = document.getElementById("email");
+            const passwordInput = document.getElementById("password");
+            const passwordConfirmInput = document.getElementById("passwordconfirm");
+
+            form.addEventListener("submit", function (event) {
+                let isValid = true;
+
+                // Clear previous error messages
+                document.querySelectorAll(".error-message").forEach(el => el.remove());
+
+                // First name validation
+                if (firstNameInput.value.trim() === "") {
+                    showError(firstNameInput, "Fill in the first name field");
+                    isValid = false;
+                }
+
+                // Last name validation
+                if (lastNameInput.value.trim() === "") {
+                    showError(lastNameInput, "Fill in the last name field");
+                    isValid = false;
+                }
+
+                // Email validation
+                if (!validateEmail(emailInput.value)) {
+                    showError(emailInput, "Please enter a valid email address");
+                    isValid = false;
+                }
+
+                // Password validation (at least 8 characters, includes number and special character)
+                if (!validatePassword(passwordInput.value)) {
+                    showError(passwordInput, "Password must be at least 8 characters and include a number and a special character");
+                    isValid = false;
+                }
+
+                // Confirm password validation
+                if (passwordInput.value !== passwordConfirmInput.value) {
+                    showError(passwordConfirmInput, "Passwords do not match");
+                    isValid = false;
+                }
+
+                if (!isValid) {
+                    event.preventDefault(); // Prevent form submission if validation fails
+                }
+            });
+
+            function validateEmail(email) {
+                const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return re.test(email);
+            }
+
+            function validatePassword(password) {
+                const re = /^(?=.*[0-9])(?=.*[!@#$%^&*])[A-Za-z0-9!@#$%^&*]{8,}$/;
+                return re.test(password);
+            }
+
+            function showError(input, message) {
+                const errorElement = document.createElement("p");
+                errorElement.className = "error-message text-red-500 text-xs mt-1";
+                errorElement.innerText = message;
+                input.parentElement.appendChild(errorElement);
+            }
+    </script>
+</body>
+
+</html>

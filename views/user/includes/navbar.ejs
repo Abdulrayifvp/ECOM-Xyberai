@@ -6,31 +6,33 @@
                     <h1 class="text-xl font-bold text-indigo-600">Xyber - Ecom</h1>
                 </div>
                 <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
-                  
-                    
+
+
                 </div>
             </div>
             <div class="hidden sm:ml-6 sm:flex sm:items-center">
                 <div class="flex space-x-4">
-                    <a href="/auth//login"
-                        class="text-gray-500 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium">
-                        Login
-                    </a>
-                    <a href="/auth/signup"
-                        class="bg-indigo-600 text-white hover:bg-indigo-700 px-3 py-2 rounded-md text-sm font-medium">
-                        Sign Up
-                    </a>
+
+                    <%if(!user || user.isLogged===false) { %>
+                        <a href="/auth/login"
+                            class="text-gray-500 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium">
+                            Login
+                        </a>
+                        <a href="/auth/signup"
+                            class="bg-indigo-600 text-white hover:bg-indigo-700 px-3 py-2 rounded-md text-sm font-medium">
+                            Sign Up
+                        </a>
+                        <% } else { %>
+                            <a href="/auth/Logout" class="bg-indigo-600 text-white hover:bg-indigo-700 px-3 py-2 rounded-md text-sm font-medium">
+                                Logout
+                            </a>
+                            <% } %>
+
+
+
                 </div>
 
-                <div class="relative">
-                    <button class="p-1 rounded-full text-gray-500 hover:text-gray-700 focus:outline-none">
-                        <i class="fas fa-shopping-cart text-xl"></i>
-                    </button>
-                    <span
-                        class="absolute -top-2 -right-2 flex items-center justify-center w-5 h-5 text-xs font-bold text-white bg-indigo-600 rounded-full">
-                        3
-                    </span>
-                </div>
+
 
             </div>
             <div class="-mr-2 flex items-center sm:hidden">

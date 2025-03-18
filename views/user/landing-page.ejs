@@ -1,5 +1,4 @@
 <%- include ('./includes/header.ejs') %>
-
     <body class="bg-gray-50">
         <!-- Navigation -->
         <%- include ('./includes/navbar.ejs') %>
@@ -12,7 +11,7 @@
                         <% for (product of products) { %>
                         <div class="group relative">
                             <div
-                                class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 flex items-center justify-center">
+                                class="w-full max-h-100 bg-gray-200 object-cover aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 flex items-center justify-center">
                                 <img src="<%= product.imageUrl %>" alt="Product" class="w-full h-full object-cover">
                             </div>
 
@@ -24,10 +23,10 @@
                                             <%=product.name%>
                                         </a>
                                     </h3>
-                                    <p class="mt-1 text-sm text-gray-500">White</p>
                                 </div>
                                 <p class="text-sm font-medium text-gray-900">Rs. <%=product.price%></p>
                             </div>
+                            <button class="bg-indigo-600 text-white hover:bg-indigo-700 px-3 py-2 rounded-md text-sm font-medium">BUY NOW</button>
                         </div>
                     <% } %>
                     </div>
