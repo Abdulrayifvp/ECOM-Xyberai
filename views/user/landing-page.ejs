@@ -1,0 +1,71 @@
+<%- include ('./includes/header.ejs') %>
+
+    <body class="bg-gray-50">
+        <!-- Navigation -->
+        <%- include ('./includes/navbar.ejs') %>
+            <!-- Featured Products -->
+            <div id="featured" class="bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                    <h2 class="text-2xl font-extrabold tracking-tight text-gray-900">Featured Products</h2>
+                    <div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+                        <!-- Product 1 -->
+                        <% for (product of products) { %>
+                        <div class="group relative">
+                            <div
+                                class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 flex items-center justify-center">
+                                <img src="<%= product.imageUrl %>" alt="Product" class="w-full h-full object-cover">
+                            </div>
+
+                            <div class="mt-4 flex justify-between">
+                                <div>
+                                    <h3 class="text-sm text-gray-700">
+                                        <a href="/product-details?id=<%=product.id%>" class="font-medium text-gray-900">
+                                            <span aria-hidden="true" class="absolute inset-0"></span>
+                                            <%=product.name%>
+                                        </a>
+                                    </h3>
+                                    <p class="mt-1 text-sm text-gray-500">White</p>
+                                </div>
+                                <p class="text-sm font-medium text-gray-900">Rs. <%=product.price%></p>
+                            </div>
+                        </div>
+                    <% } %>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Newsletter -->
+            <div class="bg-gray-100">
+                <div class="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:py-16 lg:px-8">
+                    <div
+                        class="px-6 py-6 bg-indigo-700 rounded-lg md:py-12 md:px-12 lg:py-16 lg:px-16 xl:flex xl:items-center">
+                        <div class="xl:w-0 xl:flex-1">
+                            <h2 class="text-2xl font-extrabold tracking-tight text-white sm:text-3xl">
+                                Sign up for our newsletter
+                            </h2>
+                            <p class="mt-3 max-w-3xl text-lg leading-6 text-indigo-200">
+                                Get the latest updates on new products and upcoming sales
+                            </p>
+                        </div>
+                        <div class="mt-8 sm:w-full sm:max-w-md xl:mt-0 xl:ml-8">
+                            <form class="sm:flex">
+                                <label for="email-address" class="sr-only">Email address</label>
+                                <input id="email-address" name="email-address" type="email" autocomplete="email"
+                                    required
+                                    class="w-full rounded-md border-white px-5 py-3 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-700"
+                                    placeholder="Enter your email">
+                                <button type="submit"
+                                    class="mt-3 w-full flex items-center justify-center px-5 py-3 border border-transparent rounded-md shadow text-base font-medium text-indigo-600 bg-white hover:bg-indigo-50 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-700 sm:mt-0 sm:ml-3 sm:w-auto sm:flex-shrink-0">
+                                    Subscribe
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <%- include ('./includes/footer.ejs') %>
+    </body>
+
+    </html>
