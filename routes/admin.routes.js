@@ -3,12 +3,12 @@ var router = express.Router();
 let supabase = require('../config/supabase');
 const adminController = require('../controllers/admin.controller');
 const roleVerifier = require('../middleware/roleVerifier');
-const Autherization = require('../middleware/Autherization');
+const checkAuth = require('../middleware/Autherization');
 
 
-router.get('/dashboard',Autherization, roleVerifier, adminController.getDashboard);
-router.get('/add-product',Autherization, roleVerifier, adminController.getAddProduct);
-router.post('/add-product',Autherization, roleVerifier, adminController.postAddProduct);
+router.get('/dashboard',checkAuth,roleVerifier, adminController.getDashboard);
+router.get('/add-product', checkAuth, roleVerifier, adminController.getAddProduct);
+router.post('/add-product', checkAuth, roleVerifier, adminController.postAddProduct);
 
 
 

@@ -18,13 +18,16 @@
                         <li>
                             <div class="flex items-center">
                                 <i class="fas fa-chevron-right text-gray-400 text-sm"></i>
-                                <a href="#" class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700">Featured</a>
+                                <a href="#"
+                                    class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700">Featured</a>
                             </div>
                         </li>
                         <li>
                             <div class="flex items-center">
                                 <i class="fas fa-chevron-right text-gray-400 text-sm"></i>
-                                <span class="ml-4 text-sm font-medium text-gray-700" aria-current="page"><%=product.name%></span>
+                                <span class="ml-4 text-sm font-medium text-gray-700" aria-current="page">
+                                    <%=product.product_name%>
+                                </span>
                             </div>
                         </li>
                     </ol>
@@ -45,10 +48,14 @@
 
                         <!-- Product details -->
                         <div class="mt-10 px-4 sm:px-0 sm:mt-16 lg:mt-0">
-                            <h1 class="text-3xl font-extrabold tracking-tight text-gray-900">Classic White T-Shirt</h1>
+                            <h1 class="text-3xl font-extrabold tracking-tight text-gray-900">
+                                <%=product.product_name%>
+                            </h1>
                             <div class="mt-3">
                                 <h2 class="sr-only">Product information</h2>
-                                <p class="text-3xl text-gray-900">$35</p>
+                                <p class="text-3xl text-gray-900">
+                                    <%=product.price%>
+                                </p>
                             </div>
 
                             <!-- Reviews -->
@@ -69,7 +76,7 @@
                             <div class="mt-6">
                                 <h3 class="sr-only">Description</h3>
                                 <p class="text-base text-gray-700">
-                                    <%=product.desc%>
+                                    <%=product.description%>
                                 </p>
                             </div>
 
@@ -135,98 +142,44 @@
                     <div class="mt-6 border-t border-gray-200 pt-6">
                         <div class="flex items-center justify-between">
                             <div class="flex items-center">
-                                <div class="flex items-center">
-                                    <i class="fas fa-star text-yellow-400"></i>
-                                    <i class="fas fa-star text-yellow-400"></i>
-                                    <i class="fas fa-star text-yellow-400"></i>
-                                    <i class="fas fa-star text-yellow-400"></i>
-                                    <i class="fas fa-star-half-alt text-yellow-400"></i>
-                                </div>
-                                <p class="ml-2 text-sm text-gray-500">Based on 128 reviews</p>
+                                <p class="ml-2 text-sm text-gray-500">Based on <%=reviews.length%> reviews</p>
                             </div>
-                            <button
+                            <button id="open-modal"
                                 class="bg-indigo-600 text-white hover:bg-indigo-700 px-4 py-2 rounded-md text-sm font-medium">
                                 Write a review
                             </button>
                         </div>
 
                         <!-- Review 1 -->
-                        <div class="mt-8 border-t border-gray-200 pt-8">
-                            <div class="flex items-center">
-                                <img class="h-12 w-12 rounded-full" src="https://w7.pngwing.com/pngs/1000/665/png-transparent-computer-icons-profile-s-free-angle-sphere-profile-cliparts-free.png"
-                                    alt="Reviewer">
-                                <div class="ml-4">
-                                    <h4 class="text-sm font-bold text-gray-900">John D.</h4>
-                                    <div class="mt-1 flex items-center">
-                                        <i class="fas fa-star text-yellow-400"></i>
-                                        <i class="fas fa-star text-yellow-400"></i>
-                                        <i class="fas fa-star text-yellow-400"></i>
-                                        <i class="fas fa-star text-yellow-400"></i>
-                                        <i class="fas fa-star text-yellow-400"></i>
+                        <% reviews.forEach(review=> { %>
+                            <div class="mt-8 border-t border-gray-200 pt-8">
+                                <div class="flex items-center">
+                                    <img class="h-12 w-12 rounded-full"
+                                        src="https://w7.pngwing.com/pngs/1000/665/png-transparent-computer-icons-profile-s-free-angle-sphere-profile-cliparts-free.png"
+                                        alt="Reviewer">
+                                    <div class="ml-4">
+                                        <div class="mt-1 flex items-center">
+                                            <% for(let i=0; i < review.rating; i++) { %>
+                                                <i class="fas fa-star text-yellow-400"></i>
+                                                <% } %>
+                                                    <% for(let i=0; i < 5 - review.rating; i++) { %>
+                                                        <i class="far fa-star text-yellow-400"></i>
+                                                        <% } %>
+                                        </div>
+                                        <p class="text-sm text-gray-500">
+                                            <%= new Date(review.created_at).toLocaleDateString() %>
+                                        </p>
                                     </div>
-                                    <p class="text-sm text-gray-500">March 10, 2025</p>
+                                </div>
+                                <div class="mt-4 text-base text-gray-600">
+                                    <p>
+                                        <%= review.review %>
+                                    </p>
                                 </div>
                             </div>
-                            <div class="mt-4 text-base text-gray-600">
-                                <p>Great quality t-shirt! The material is soft and comfortable, and the fit is perfect.
-                                    I've
-                                    washed it several times and it still looks brand new. Highly recommend!</p>
-                            </div>
-                        </div>
+                            <% }) %>
 
-                        <!-- Review 2 -->
-                        <div class="mt-8 border-t border-gray-200 pt-8">
-                            <div class="flex items-center">
-                                <img class="h-12 w-12 rounded-full" src="https://w7.pngwing.com/pngs/1000/665/png-transparent-computer-icons-profile-s-free-angle-sphere-profile-cliparts-free.png"
-                                    alt="Reviewer">
-                                <div class="ml-4">
-                                    <h4 class="text-sm font-bold text-gray-900">Sarah M.</h4>
-                                    <div class="mt-1 flex items-center">
-                                        <i class="fas fa-star text-yellow-400"></i>
-                                        <i class="fas fa-star text-yellow-400"></i>
-                                        <i class="fas fa-star text-yellow-400"></i>
-                                        <i class="fas fa-star text-yellow-400"></i>
-                                        <i class="far fa-star text-yellow-400"></i>
-                                    </div>
-                                    <p class="text-sm text-gray-500">February 28, 2025</p>
-                                </div>
-                            </div>
-                            <div class="mt-4 text-base text-gray-600">
-                                <p>Nice basic tee for everyday wear. The material is good quality and it fits as
-                                    expected. Would
-                                    buy again in other colors.</p>
-                            </div>
-                        </div>
 
-                        <!-- Review 3 -->
-                        <div class="mt-8 border-t border-gray-200 pt-8">
-                            <div class="flex items-center">
-                                <img class="h-12 w-12 rounded-full" src="https://w7.pngwing.com/pngs/1000/665/png-transparent-computer-icons-profile-s-free-angle-sphere-profile-cliparts-free.png"
-                                    alt="Reviewer">
-                                <div class="ml-4">
-                                    <h4 class="text-sm font-bold text-gray-900">Michael R.</h4>
-                                    <div class="mt-1 flex items-center">
-                                        <i class="fas fa-star text-yellow-400"></i>
-                                        <i class="fas fa-star text-yellow-400"></i>
-                                        <i class="fas fa-star text-yellow-400"></i>
-                                        <i class="fas fa-star text-yellow-400"></i>
-                                        <i class="far fa-star text-yellow-400"></i>
-                                    </div>
-                                    <p class="text-sm text-gray-500">February 15, 2025</p>
-                                </div>
-                            </div>
-                            <div class="mt-4 text-base text-gray-600">
-                                <p>Good value for the price. The shirt is comfortable and looks good. My only complaint
-                                    is that
-                                    it shrank a little after the first wash, so consider sizing up.</p>
-                            </div>
-                        </div>
-
-                        <div class="mt-8 text-center">
-                            <button class="text-indigo-600 hover:text-indigo-500 font-medium">
-                                Load more reviews
-                            </button>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -263,6 +216,101 @@
 
             <!-- Footer -->
             <%- include ('./includes/footer.ejs') %>
+
+                <script>
+                    document.addEventListener("DOMContentLoaded", function () {
+                        const openModalBtn = document.getElementById("open-modal");
+                        const modal = document.getElementById("rating-modal");
+                        const closeModalBtn = document.getElementById("close-modal");
+                        const form = document.getElementById("rating-form");
+                        const stars = document.querySelectorAll(".star");
+                        const reviewTextElement = document.getElementById("review-text");
+                        const errorMessage = document.getElementById("error-message");
+                        let rating = 0;
+
+                        openModalBtn.addEventListener("click", () => {
+                            modal.classList.remove("hidden");
+                        });
+
+                        closeModalBtn.addEventListener("click", () => {
+                            modal.classList.add("hidden");
+                            errorMessage.textContent = "";
+                        });
+
+                        stars.forEach((star, index) => {
+                            star.addEventListener("click", () => {
+                                rating = index + 1;
+                                updateStars(rating);
+                            });
+                        });
+
+                        function updateStars(rating) {
+                            stars.forEach((star, index) => {
+                                star.classList.toggle("text-yellow-500", index < rating);
+                            });
+                        }
+
+                        form.addEventListener("submit", function (event) {
+                            event.preventDefault();
+                            const reviewText = reviewTextElement.value.trim();
+
+                            if (rating === 0) {
+                                errorMessage.textContent = "Please select a star rating.";
+                                return;
+                            }
+
+                            if (reviewText.length < 10) {
+                                errorMessage.textContent = "Review must be at least 10 characters long.";
+                                return;
+                            }
+                            const urlParams = new URLSearchParams(window.location.search);
+                            const value = urlParams.get('id'); // Replace 'param' with your query key
+                            console.log(value);
+
+                            fetch("/add-review", {
+                                method: "POST",
+                                body: JSON.stringify({
+                                    rating,
+                                    reviewText,
+                                    pro_id: value
+                                }),
+                                headers: {
+                                    "Content-type": "application/json; charset=UTF-8"
+                                }
+                            }).then((response) => {
+                                location.reload()
+
+                                modal.classList.add("hidden");
+                                errorMessage.textContent = "";
+                            })
+                        });
+                    });
+
+                    // Ensure modal HTML is inserted properly
+                    document.body.insertAdjacentHTML("beforeend", `
+<div id="rating-modal" class="hidden fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center">
+    <div class="bg-white rounded-lg p-6 w-96 shadow-lg">
+        <h2 class="text-lg font-medium text-gray-700">Rate this Product</h2>
+        <p id="error-message" class="text-red-500 text-sm mt-2"></p>
+        <form id="rating-form">
+            <div id="stars-container" class="flex space-x-2 mt-2">
+                <span class="star text-gray-400 text-2xl cursor-pointer">★</span>
+                <span class="star text-gray-400 text-2xl cursor-pointer">★</span>
+                <span class="star text-gray-400 text-2xl cursor-pointer">★</span>
+                <span class="star text-gray-400 text-2xl cursor-pointer">★</span>
+                <span class="star text-gray-400 text-2xl cursor-pointer">★</span>
+            </div>
+            <textarea id="review-text" class="w-full border border-gray-300 rounded-md mt-3 p-2" placeholder="Write your review..."></textarea>
+            <div class="flex justify-end space-x-2 mt-4">
+                <button type="button" id="close-modal" class="px-4 py-2 bg-gray-300 rounded-md">Cancel</button>
+                <button type="submit" class="px-4 py-2 bg-indigo-600 text-white rounded-md">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>`);
+
+
+                </script>
     </body>
 
     </html>

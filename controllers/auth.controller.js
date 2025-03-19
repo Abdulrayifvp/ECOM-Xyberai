@@ -54,7 +54,11 @@ module.exports = {
             bcrypt.compare(password, data[0].password, (err, result) => {
                 if (result) {
                     req.session.user = { id: data[0].id, email: data[0].email, role: data[0].role, isLogged: true };
-                    return res.status(200).redirect('/');
+                    if (data[0].role == 'user'){
+                        return res.status(200).redirect('/');
+                    }else if (data[0].role == 'admin'){
+                        return res.status(200).redirect('/admin/dashboard');
+                    }
                 } else {
                     return res.status(400).json({error_message:'Invalid email or password'});
                 }

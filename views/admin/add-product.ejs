@@ -8,13 +8,13 @@
                     <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
                         <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
                             <h1 class="text-bold text-center my-2">ADD PRODUCT</h1>
-                            <form class="space-y-6" action="#" method="POST">
+                            <form class="space-y-6" action="/admin/add-product" method="POST">
                                 <div>
-                                    <label for="product-name" class="block text-sm font-medium text-gray-700">
+                                    <label for="product_name" class="block text-sm font-medium text-gray-700">
                                         Product Name
                                     </label>
                                     <div class="mt-1">
-                                        <input id="product-name" name="product-name" type="text"
+                                        <input id="product_name" name="product_name" type="text"
                                             class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                     </div>
                                 </div>
@@ -37,11 +37,11 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <label for="image-url" class="block text-sm font-medium text-gray-700">
+                                    <label for="imageUrl" class="block text-sm font-medium text-gray-700">
                                         Image Url
                                     </label>
                                     <div class="mt-1">
-                                        <input id="image-url" name="image-url" type="text"
+                                        <input id="imageUrl" name="imageUrl" type="text"
                                             class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                     </div>
                                 </div>
@@ -64,10 +64,10 @@
                             event.preventDefault(); // Prevent default form submission
 
                             // Get form values
-                            const productName = document.getElementById("product-name").value.trim();
+                            const productName = document.getElementById("product_name").value.trim();
                             const description = document.getElementById("description").value.trim();
                             const price = document.getElementById("price").value.trim();
-                            const imageUrl = document.getElementById("image-url").value.trim();
+                            const imageUrl = document.getElementById("imageUrl").value.trim();
 
                             let isValid = true;
 
@@ -76,7 +76,7 @@
 
                             // Validate Product Name
                             if (productName === "") {
-                                showError("product-name", "Product Name is required");
+                                showError("product_name", "Product Name is required");
                                 isValid = false;
                             }
 
@@ -94,7 +94,7 @@
 
                             // Validate Image URL (should be a valid URL)
                             if (!/^https?:\/\/.+\.(jpg|jpeg|png|gif|webp)$/i.test(imageUrl)) {
-                                showError("image-url", "Enter a valid image URL (jpg, jpeg, png, gif, webp)");
+                                showError("imageUrl", "Enter a valid image URL (jpg, jpeg, png, gif, webp)");
                                 isValid = false;
                             }
 
